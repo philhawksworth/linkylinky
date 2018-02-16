@@ -9,9 +9,11 @@ var fs          = require('fs');
 var config      = require('dotenv').config()
 
 
+
 // what goes where?
 var buildSrc = "src";
 var buildDest = "dist";
+
 
 
 // local webserver for development
@@ -19,6 +21,7 @@ gulp.task('serve', serve({
   root: [buildDest],
   port: 8008,
 }));
+
 
 
 // cleanup the build output
@@ -38,12 +41,14 @@ gulp.task('clean-js', function () {
 });
 
 
+
 // Compile the templates into html
 gulp.task("render", function () {
   gulp.src([buildSrc + '/pages/**/[!_]*.html'])
     .pipe(nunjucks.compile())
     .pipe(gulp.dest(buildDest))
 });
+
 
 
 // Compile SCSS files to CSS
@@ -57,6 +62,7 @@ gulp.task("scss", ['clean-css'], function () {
 });
 
 
+
 // simplest possible noddy js management
 gulp.task("js", function () {
   gulp.src(buildSrc + "/js/**/*.js")
@@ -64,7 +70,8 @@ gulp.task("js", function () {
 });
 
 
-// get a list of entries submitted to the form
+
+// get a list of routes stored in the form
 gulp.task("get:routes", function () {
 
   var url = "https://api.netlify.com/api/v1/forms/" + process.env.ROUTES_FORM_ID + "/submissions?access_token=" + process.env.API_AUTH;
@@ -78,16 +85,12 @@ gulp.task("get:routes", function () {
       var routes = [];
       var formsData = JSON.parse(body);
       for(var item in formsData) {
-        // routes.push({
-        //   destination: formsData[item].data.destination.trim(),
-        //   code: formsData[item].data.code
-        // });
         routes.push("/" + formsData[item].data.code + "  " + formsData[item].data.destination + "  302");
       }
       // Create a set of results with no dupes
       var data = [...new Set(routes)];
 
-
+      // save our routes to the redirect file
       fs.writeFile(buildDest + '/_redirects', data.join('\n'), function(err) {
         if(err) {
           return console.log(err);
@@ -111,6 +114,7 @@ gulp.task("watch", ["build"], function () {
   gulp.watch(buildSrc + "/pages/**/*", ["render"]);
   gulp.watch(buildSrc + "/entries.json", ["render"]);
 });
+
 
 
 // build the site
