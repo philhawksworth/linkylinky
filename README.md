@@ -19,6 +19,7 @@ You can clone this repo to your own github account and create a new site on Netl
 
 
 
+
 ## Configuration
 
 Before you can start using the URL shortener, you'll need to tell your build script where it can find your data. We'll make use of Netlify's Form Handling and access the content via the provided API.
