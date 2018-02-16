@@ -4,20 +4,18 @@ var request = require("request");
 var config = require("dotenv").config();
 var Hashids = require("hashids");
 
+var rootURL = "https://linkylinky.netlify.com/";
+
 
 export function handler(event, context, callback) {
 
   // get the details of what we are creating
   var destination = event.queryStringParameters['destination'];
-  var expires = event.queryStringParameters['expires'];
-  var code = event.queryStringParameters['code'];
 
   // generate a unique short code (stupidly for now)
   var hash = new Hashids();
   var number = Math.round(new Date().getTime() / 100);
   var code = hash.encode(number);
-
-  // determine the expiry date for the route, (or make this a 301?)
 
   // post the new route to the Routes form
   var payload = {
@@ -27,24 +25,25 @@ export function handler(event, context, callback) {
     'expires': expires | null
   };
 
-  request.post({'url': 'https://linkylinky.netlify.com/done', 'formData': payload }, function(err, httpResponse, body) {
+  request.post({'url': rootURL, 'formData': payload }, function(err, httpResponse, body) {
     var msg;
     if (err) {
       msg = "Post to Routes stash failed: " + err;
     } else {
-      msg = "Route registered. Site deploying to include it. https://linkylinky.netlify.com/" + code
+      msg = "Route registered. Site deploying to include it. " + rootURL + code
     }
     console.log(msg);
     // tell the user what their shortcode will be
     return callback(null, {
       statusCode: 200,
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({"url": "https://linkylinky.netlify.com/" + code})
+      body: JSON.stringify({"url": rootURL + code})
     })
   });
 
   // ENHANCEMENT: check for uniqueness of shortcode
   // ENHANCEMENT: let the user provide their own shortcode
   // ENHANCEMENT: dont' duplicate existing routes, return the current one
+  // ENHANCEMENT: allow the user to specify how long the redirect should exist for
 
 }
