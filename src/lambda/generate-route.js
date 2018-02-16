@@ -10,7 +10,7 @@ var rootURL = "https://linkylinky.netlify.com/";
 export function handler(event, context, callback) {
 
   // get the details of what we are creating
-  var destination = event.queryStringParameters['destination'];
+  var destination = event.queryStringParameters['to'];
 
   // generate a unique short code (stupidly for now)
   var hash = new Hashids();
