@@ -1,7 +1,9 @@
 var btn = document.querySelector('#btn-create');
 btn.addEventListener('click', function (event) {
   event.preventDefault();
-  var url = document.querySelector('#destination');
+  var url = document.querySelector('#destination').value;
+
+  console.log(url);
 
   fetch('/.netlify/functions/generate-route?destination='+url)
   .then(function(response) { return response.json(); })
