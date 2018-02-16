@@ -2,8 +2,8 @@
   Functions = "functions"
   command = "npm run build"
 
-[[redirects]]
-  from = "/"
-  to = "/still-baking"
-  status = 404
+# [[redirects]]
+#   from = "/"
+#   to = "/still-baking"
+#   status = 404
 
