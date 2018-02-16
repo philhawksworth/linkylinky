@@ -3,6 +3,7 @@ var gulp        = require("gulp");
 var clean       = require('gulp-clean');
 var serve       = require('gulp-serve');
 var sass        = require("gulp-sass");
+var nunjucks    = require('gulp-nunjucks')
 var request     = require("request");
 var fs          = require('fs');
 var config      = require('dotenv').config()
@@ -40,9 +41,6 @@ gulp.task('clean-js', function () {
 // Compile the templates into html
 gulp.task("render", function () {
   gulp.src([buildSrc + '/pages/**/[!_]*.html'])
-    .pipe(data(function(file) {
-      return JSON.parse(fs.readFileSync(buildSrc + '/entries.json'));
-    }))
     .pipe(nunjucks.compile())
     .pipe(gulp.dest(buildDest))
 });
@@ -59,13 +57,28 @@ gulp.task("scss", ['clean-css'], function () {
 });
 
 
+// simplest possible noddy js management
+gulp.task("js", function () {
+  gulp.src(buildSrc + "/js/**/*.js")
+    .pipe(gulp.dest(buildDest + '/js'))
+});
+
+
+
+// Watch working folders for changes
+gulp.task("watch", ["build"], function () {
+  gulp.watch(buildSrc + "/scss/**/*", ["scss"]);
+  gulp.watch(buildSrc + "/js/**/*", ["js"]);
+  gulp.watch(buildSrc + "/pages/**/*", ["render"]);
+  gulp.watch(buildSrc + "/entries.json", ["render"]);
+});
+
 
 // build the site
 gulp.task("build", function(callback) {
   runSequence(
     "clean-build",
-    "html",
-    "js",
+    ["render", "js", "scss"],
     callback
   );
 });

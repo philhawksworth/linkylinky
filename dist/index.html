@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LinkyLinky</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    </head>
+  <body class="home">
+    <header>
+      <div class="container">
+        <h1>LinkyLinky</h1>
+        <p>A URL shortener of your own</p>
+      </div>
+    </header>
+    <div class="content">
+      <div class="container">
+      
+
+<form name="url-queue" netlify-honeypot="full-name" action="done" netlify>
+  <p class="honey">
+    <label>Your full name: <input name="full-name"></label>
+  </p>
+  <p>
+    <label for="destination">URL to shorten<small>well get a you something shorter</small></label>
+    <input type="url" name="destination" id="destination">
+  </p>
+  <p>
+    <button type="submit" class="btn">Get a short link</button>
+  </p>
+</form>
+
+<p>
+  we might want to submit this with js so we can massage the confirmation url and pass info through to the confirmation script
+</p>
+
+</div>
+    </div>
+    <footer>
+      <div class="container">
+        <p>This reference site is built using the <a href="https://www.jamstack.org">JAMstack</a> and hosted on <a href="https://www.netlify.com">Netlify</a>.</p>
+        <p><a href="/about">More info</a> on what, why and how you can clone it and play along.</p>
+      </div>
+    </footer>
+  </body>
+</html>
