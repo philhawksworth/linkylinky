@@ -5,6 +5,7 @@ $bp-wide: "(min-width: 1100px)";
 
 $body-color: #fff;
 $text-color-bold: #223344;
+$text-color-dark: mix($text-color-bold, #000, 80%);
 $text-color: mix($text-color-bold, $body-color, 80%);
 $text-color-light: mix($text-color-bold, $body-color, 60%);
 $text-color-super-light: mix($text-color-bold, $body-color, 30%);

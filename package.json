@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp watch & gulp serve",
-    "build": "gulp build",
+    "build": "gulp build & build:functions",
     "render": "gulp render",
     "build:css": "gulp scss",
     "build:js": "gulp js",

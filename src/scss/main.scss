@@ -39,7 +39,7 @@ body {
 }
 
 header {
-  background-color: $text-color-bold;
+  background: radial-gradient(circle, $text-color-bold 30%, $text-color-dark 80%);
   padding-top: 4em;
   padding-bottom: 10em;
   color: $body-color;
