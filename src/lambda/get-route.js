@@ -11,7 +11,6 @@ export function handler(event, context, callback) {
 
   // where is the data?
   var url = "https://api.netlify.com/api/v1/forms/" + process.env.ROUTES_FORM_ID + "/submissions/?access_token=" + process.env.API_AUTH;
-  console.log("Requesting THIS", url);
 
   request(url, function(err, response, body){
 
@@ -25,11 +24,10 @@ export function handler(event, context, callback) {
           return callback(null, {
             statusCode: 200,
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({url: roots[item].data.destination})
+            body: JSON.stringify({code: code, url: roots[item].data.destination})
           })
         }
       }
-
     } else {
       return callback(null, {
         statusCode: 200,
