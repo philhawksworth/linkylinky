@@ -88,7 +88,7 @@ gulp.task("get:routes", function () {
       var data = [...new Set(routes)];
 
 
-      fs.writeFile('_redirects', data.join('\n'), function(err) {
+      fs.writeFile(buildDest + '/_redirects', data.join('\n'), function(err) {
         if(err) {
           return console.log(err);
         } else {
