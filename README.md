@@ -22,11 +22,21 @@ You can clone this repo to your own github account and create a new site on Netl
 
 ## Configuration
 
+
+### Environment variables
+
 Before you can start using the URL shortener, you'll need to tell your build script where it can find your data. We'll make use of Netlify's Form Handling and access the content via the provided API.
 
 To do this we'll need to define the following Environment Variables:
 
 - `QUEUE_FORM_ID` : The ID of the form in your Netlify site which will contain all URL shortening requests until they are given a unique shortcode.
 - `ROUTES_FORM_ID` : The ID of the form in your Netlify site which contains all of your active routes
+- `API_AUTH` : The netlify APi authentication token.
+
+
+### Build hooks
+
+Imn order to add new redirect rules to the Netlify CDN, we'll need to rebuild and deploy the site when we have a new route. This is done bey creating a build hook and then calling it whenever a new submission is posted to the Routes form.
+
 
 

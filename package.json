@@ -10,6 +10,7 @@
     "render": "gulp render",
     "build:css": "gulp scss",
     "build:js": "gulp js",
+    "routes": "gulp get:routes",
     "build:functions": "netlify-lambda build src/lambda"
   },
   "keywords": [],

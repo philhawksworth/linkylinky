@@ -64,6 +64,45 @@ gulp.task("js", function () {
 });
 
 
+// get a list of entries submitted to the form
+gulp.task("get:routes", function () {
+
+  var url = "https://api.netlify.com/api/v1/forms/" + process.env.ROUTES_FORM_ID + "/submissions?access_token=" + process.env.API_AUTH;
+
+  request(url, function(err, response, body){
+
+    // format the response to be a bit more concise and stash it for the build
+    if(!err && response.statusCode === 200){
+
+      // parse and massage the data we hold in the routes form
+      var routes = [];
+      var formsData = JSON.parse(body);
+      for(var item in formsData) {
+        // routes.push({
+        //   destination: formsData[item].data.destination.trim(),
+        //   code: formsData[item].data.code
+        // });
+        routes.push("/" + formsData[item].data.code + "  " + formsData[item].data.destination + "  302");
+      }
+      // Create a set of results with no dupes
+      var data = [...new Set(routes)];
+
+
+      fs.writeFile('_redirects', data.join('\n'), function(err) {
+        if(err) {
+          return console.log(err);
+        } else {
+          return console.log("Routes data saved.");
+        }
+      });
+    } else {
+      return console.log(err);
+    }
+  })
+
+});
+
+
 
 // Watch working folders for changes
 gulp.task("watch", ["build"], function () {
@@ -78,7 +117,7 @@ gulp.task("watch", ["build"], function () {
 gulp.task("build", function(callback) {
   runSequence(
     "clean-build",
-    ["render", "js", "scss"],
+    ["get:routes", "render", "js", "scss"],
     callback
   );
 });
