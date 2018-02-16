@@ -5,6 +5,6 @@
 [[redirects]]
   from = "/*"
   to = "/still-baking/index.html"
-  query = {path = ":path"}
   status = 404
+  # query = {path = ":path"}
 
