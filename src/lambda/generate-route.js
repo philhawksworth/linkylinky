@@ -22,7 +22,7 @@ export function handler(event, context, callback) {
     'form-name' : "routes",
     'destination': destination,
     'code': code,
-    'expires': expires | null
+    'expires': ""
   };
 
   request.post({'url': rootURL, 'formData': payload }, function(err, httpResponse, body) {
