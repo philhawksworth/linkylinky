@@ -9,3 +9,18 @@ btn.addEventListener('click', function (event) {
     return;
   });
 }, false);
+
+
+
+var path = document.location.pathname;
+console.log("path", path);
+if(path !== "/") {
+  fetch('/.netlify/functions/get-route?code='+url)
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      document.querySelector("#confirmation").innerHTML = data.code + ' = <a href="' + data.url + '" target="_BLANK" rel="noopener">' + data.url + '</a>';
+      return;
+  });
+}
+
+
