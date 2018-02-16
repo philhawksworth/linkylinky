@@ -38,7 +38,8 @@ export function handler(event, context, callback) {
     // tell the user what their shortcode will be
     return callback(null, {
       statusCode: 200,
-      body: msg
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({"url": "https://linkylinky.netlify.com/" + code})
     })
   });
 

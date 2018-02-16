@@ -5,7 +5,8 @@
     <title>LinkyLinky</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
     <link rel="stylesheet" href="/css/main.css" />
-    </head>
+    <script src="/js/linky.js" async></script>
+  </head>
   <body class="home">
     <header>
       <div class="container">
@@ -17,16 +18,13 @@
       <div class="container">
       
 
-<form name="url-queue" netlify-honeypot="full-name" action="done" netlify>
-  <p class="honey">
-    <label>Your full name: <input name="full-name"></label>
-  </p>
+<form name="make-url" >
   <p>
     <label for="destination">URL to shorten<small>well get a you something shorter</small></label>
     <input type="url" name="destination" id="destination">
   </p>
   <p>
-    <button type="submit" class="btn">Get a short link</button>
+    <button type="submit" class="btn" id="btn-create">Get a short link</button>
   </p>
 </form>
 
