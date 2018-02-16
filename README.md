@@ -2,6 +2,12 @@
 
 A little URL shortener of your own.
 
+
+## Example
+
+[https://linkylink.netlify.com](linkylink.netlify.com)
+
+
 ## Description
 
 This site provides a simple short URL generator for you to host on you own domain. It is not optimized for giant sites or commercial use, but would most likely be best suited for personal use or as an addition to a company site who might be generating a few hundred, or a few thousand short urls.
