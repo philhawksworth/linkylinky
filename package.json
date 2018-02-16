@@ -1,0 +1,19 @@
+{
+  "name": "linkylinky",
+  "version": "1.0.0",
+  "description": "A little URL shortener of your own.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-serve": "^1.4.0",
+    "run-sequence": "^2.2.1"
+  }
+}
