@@ -15,10 +15,134 @@ body {
   font-family: georgia, serif;
   line-height: 1.6em;
   font-size: 16px;
+  font-style: italic;
+
   @include bp(mid) {
     font-size: 18px;
   }
   @include bp(wide) {
     font-size: 20px;
   }
+}
+
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include bp(mid) {
+    width: 70%;
+  }
+  @include bp(wide) {
+    width: 700px;
+  }
+}
+
+header {
+  background-color: $text-color-bold;
+  padding-top: 4em;
+  padding-bottom: 10em;
+  color: $body-color;
+}
+
+form {
+  background-color: $body-color;
+  border-radius: 6px;
+  margin-top: -6em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-left:2em;
+  padding-right:2em;
+  box-shadow: 0 2px 4px 0 $text-color-super-light;
+  position: relative;
+
+  @include bp(mid) {
+    padding-left:4em;
+    padding-right:5em;
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    padding-left: 0.4em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    font-size: 0.8em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $text-color-super-light;
+    border-top-color: $text-color-light;
+    color: $text-color;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: georgia, serif;
+    font-style: italic;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    margin-top:1.6em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    border-style: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 $text-color-super-light;
+    background-color: $text-color;
+    color: $body-color;
+
+    &:hover,
+    &:focus {
+      background-color: $text-color-bold;
+      cursor: pointer;
+    }
+    &:active {
+      background-color: $body-color;
+      color: $text-color-bold;
+    }
+  }
+
+}
+
+footer {
+  margin-top: 1em;
+  margin-bottom: 3em;
+  font-size: 0.8em;
+  color: $text-color-light;
+  line-height: 1.3em;
+}
+
+h1 {
+  line-height: 1.4em;
+  font-size: 2em;
+  @include bp(mid) {
+    font-size: 3em;
+  }
+}
+
+a {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color:$text-color-bold;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: $text-color-super-light;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $text-color-bold;
+    border-bottom-style: solid;
+    border-bottom-color: $text-color-light;
+  }
+}
+
+.confirmation {
+  margin-top:2em;
+  margin-bottom:1em;
 }

@@ -1,3 +1,15 @@
 [build]
   Functions = "functions"
   command = "npm run build"
+
+
+
+[[redirects]]
+  from = "/*"
+  to = "/still-baking/:splat"
+  status = 404
+
+[[redirects]]
+  from = "/still-baking/*"
+  to = "/still-baking/"
+  status = 200
