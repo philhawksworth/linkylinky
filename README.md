@@ -15,7 +15,8 @@ Any server side logic for the creation of unique shortcodes will take place in a
 
 You can clone this repo to your own github account and create a new site on Netlify to make your own by clicking the _Deploy to Netlify button_ below, and then providing a couple of configuration values.
 
-_DTN button_
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/philhawksworth/linkylinky)
+
 
 
 ## Configuration
