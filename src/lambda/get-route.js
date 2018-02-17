@@ -3,6 +3,7 @@
 var request = require("request");
 var config = require("dotenv").config();
 
+
 export function handler(event, context, callback) {
 
   // which URL code are we trying to retrieve?
@@ -15,15 +16,16 @@ export function handler(event, context, callback) {
 
     // look for this code in our stash
     if(!err && response.statusCode === 200){
-      var roots = JSON.parse(body);
-      for(var item in roots) {
+      var routes = JSON.parse(body);
+
+      for(var item in routes) {
         // return the result when we find the match
-        if(roots[item].data.code == code) {
-          console.log("We searched for " + code + " and we found " + roots[item].data.destination);
+        if(routes[item].data.code == code) {
+          console.log("We searched for " + code + " and we found " + routes[item].data.destination);
           return callback(null, {
             statusCode: 200,
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({code: code, url: roots[item].data.destination})
+            body: JSON.stringify({code: code, url: routes[item].data.destination})
           })
         }
       }

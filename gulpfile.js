@@ -88,16 +88,16 @@ gulp.task("get:routes", function () {
 
         // Assume http if protocol is omitted
         var destination = formsData[item].data.destination;
-        if(destination.indexOf("://") == 0) {
+         if(destination.indexOf("://") == -1) {
           destination = "http://" + destination;
         }
 
-        // add this route to our liar
+        // add this route to our list
         routes.push("/" + formsData[item].data.code + "  " + destination + "  302");
       }
 
       // save our routes to the redirect file
-      fs.writeFile(buildDest + '/_redirects', data.join('\n'), function(err) {
+      fs.writeFile(buildDest + '/_redirects', routes.join('\n'), function(err) {
         if(err) {
           return console.log(err);
         } else {
