@@ -6,7 +6,7 @@ var Hashids = require("hashids");
 
 export function handler(event, context, callback) {
 
-  console.log(event.headers);
+  console.log(event);
 
   // Set the root URL according to the site which made the request
   var rootURL = event.headers.referer;
