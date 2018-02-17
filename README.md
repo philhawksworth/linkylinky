@@ -5,7 +5,7 @@ A little URL shortener of your own.
 
 ## Example
 
-[linkylink.netlify.com](https://linkylink.netlify.com)
+[linkylinky.netlify.com](https://linkylinky.netlify.com)
 
 
 ## Description
