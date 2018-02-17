@@ -17,7 +17,7 @@ btn.addEventListener('click', function (event) {
 
 
 /*
-  if a shortcode URL brought us here, then the deploy with that redirect is still
+  if a shortcode URL brought us here, then the deployment of that redirect is still
   underway. So let's query the data store directly and send the user to the right
   place with a client side redirect.
 */
