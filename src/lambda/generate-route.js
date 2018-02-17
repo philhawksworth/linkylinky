@@ -18,7 +18,7 @@ export function handler(event, context, callback) {
   var code = hash.encode(number);
 
   // ensure that a protocol was provided
-  if(destination.indexOf("://" == 0)) {
+  if(destination.indexOf("://") === 0) {
     destination = "http://" + destination;
   }
 

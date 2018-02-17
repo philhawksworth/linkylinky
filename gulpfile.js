@@ -88,7 +88,7 @@ gulp.task("get:routes", function () {
 
         // Assume http if protocol is omitted
         var destination = formsData[item].data.destination;
-        if(destination.indexOf("://" == 0)) {
+        if(destination.indexOf("://") == 0) {
           destination = "http://" + destination;
         }
 
