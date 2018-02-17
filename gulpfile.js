@@ -78,17 +78,23 @@ gulp.task("get:routes", function () {
 
   request(url, function(err, response, body){
 
-    // format the response to be a bit more concise and stash it for the build
+    // Parse successful responses
     if(!err && response.statusCode === 200){
 
       // parse and massage the data we hold in the routes form
       var routes = [];
       var formsData = JSON.parse(body);
       for(var item in formsData) {
-        routes.push("/" + formsData[item].data.code + "  " + formsData[item].data.destination + "  302");
+
+        // Assume http if protocol is omitted
+        var destination = formsData[item].data.destination;
+        if(destination.indexOf("://" == 0)) {
+          destination = "http://" + destination;
+        }
+
+        // add this route to our liar
+        routes.push("/" + formsData[item].data.code + "  " + destination + "  302");
       }
-      // Create a set of results with no dupes
-      var data = [...new Set(routes)];
 
       // save our routes to the redirect file
       fs.writeFile(buildDest + '/_redirects', data.join('\n'), function(err) {
@@ -98,6 +104,7 @@ gulp.task("get:routes", function () {
           return console.log("Routes data saved.");
         }
       });
+
     } else {
       return console.log(err);
     }
