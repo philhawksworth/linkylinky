@@ -10,7 +10,7 @@ export function handler(event, context, callback) {
   console.log(context);
 
   // Set the root URL according to the site which made the request
-  var rootURL = event.headers.referer;
+  var rootURL = event.headers.referer || "";
 
   // get the details of what we are creating
   var destination = event.queryStringParameters['to'];
