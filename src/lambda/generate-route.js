@@ -4,12 +4,14 @@ var request = require("request");
 var config = require("dotenv").config();
 var Hashids = require("hashids");
 
-
+var rootURL = "https://";
 
 export function handler(event, context, callback) {
 
+  console.log(event.headers);
+
   // Assume https and set the root URL
-  var rootURL = "https://" + event.headers.host;
+  rootURL += event.headers.host;
 
   // get the details of what we are creating
   var destination = event.queryStringParameters['to'];
