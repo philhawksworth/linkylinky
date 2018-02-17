@@ -19,25 +19,24 @@ Any server side logic for the creation of unique shortcodes will take place in a
 
 ## Get your own
 
-You can clone this repo to your own github account and create a new site on Netlify to make your own by clicking the _Deploy to Netlify button_ below, and then providing a couple of configuration values.
+You can clone this repo to your own github account and create a new site on Netlify to make your own by clicking the _Deploy to Netlify button_ below.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/philhawksworth/linkylinky)
 
-
+After you have create a news site on Netlify via the button above, you will then need to perform the configuration steps below.
 
 ## Configuration
 
-
-### Environment variables
+### 1. Environment variables
 
 Before you can start using the URL shortener, you'll need to tell your build script where it can find your data. We'll make use of Netlify's Form Handling and access the content via the provided API.
 
 To do this we'll need to define the following Environment Variables:
 
-- `ROUTES_FORM_ID` : The ID of the form in your Netlify site which contains all of your active routes
-- `API_AUTH` : The netlify API authentication token. This will let your build access the routes stored in your form.
+- `ROUTES_FORM_ID` : The ID of the form in your Netlify site which contains all of your active routes (Discover this from the URL of your Routes form in your Forms admin page)
+- `API_AUTH` : Your netlify API authentication token. This will let your build script access the routes stored in your form programmatically. (Create one at https://app.netlify.com/account/applications)
 
 
-### Build hooks
+### 2. Build hooks
 
-In order to add new redirect rules to the Netlify CDN, we'll need to rebuild and deploy the site when we have a new route. This is done bey creating a build hook and then calling it whenever a new submission is posted to the Routes form.
+In order to add new redirect rules to the Netlify CDN, we'll need to rebuild and deploy the site when we have a new route. This is done by creating a build hook and then calling it whenever a new submission is posted to the Routes form.
