@@ -21,7 +21,8 @@ btn.addEventListener('click', function (event) {
   underway. So let's query the data store directly and send the user to the right
   place with a client side redirect.
 */
-if(document.location.pathname !== "/") {
+var path = document.location.pathname;
+if(path !== "/") {
   fetch('/.netlify/functions/get-route?code='+path.replace("/",""))
     .then(function(response) { return response.json(); })
     .then(function(data) {
