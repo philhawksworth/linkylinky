@@ -3,10 +3,9 @@
 var request = require("request");
 var config = require("dotenv").config();
 
-
 export function handler(event, context, callback) {
 
-  // get the details of what we are creating
+  // which URL code are we trying to retrieve?
   var code = event.queryStringParameters['code'];
 
   // where is the data?
