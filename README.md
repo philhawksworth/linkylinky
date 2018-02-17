@@ -14,7 +14,7 @@ This site provides a simple short URL generator for you to host on you own domai
 
 The redirect rules it generates will be created on Netlify's intelligent CDN and so should be very fast at access time. The generation of new shortcodes will use a static site generation build step to populate and deploy a Netlify `_redirects` file.
 
-Any server side logic for the creation of unique shortcodes will take place in an AWS Lambda which will be created and managed from within Netlify thanks to Netlify Functions.
+Any server side logic for the creation of unique shortcodes will take place in an AWS Lambda which will be created and managed from within Netlify thanks to [Netlify Functions](https://functions-beta--www.netlify.com/docs/lambda-functions/).
 
 
 ## Get your own
