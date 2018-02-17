@@ -20,6 +20,11 @@ export function handler(event, context, callback) {
   var number = Math.round(new Date().getTime() / 100);
   var code = hash.encode(number);
 
+  // ensure that a protocol was provided
+  if(destination.indexOf("://" == 0)) {
+    destination = "http://" + destination;
+  }
+
   // post the new route to the Routes form
   var payload = {
     'form-name' : "routes",
