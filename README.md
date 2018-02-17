@@ -29,7 +29,7 @@ After you have create a news site on Netlify via the button above, you will then
 
 ### 1. Environment variables
 
-Before you can start using the URL shortener, you'll need to tell your build script where it can find your data. We'll make use of Netlify's Form Handling and access the content via the provided API.
+Before you can start using the URL shortener, you'll need to tell your build script where it can find your data. We'll make use of Netlify's [form handling](https://www.netlify.com/docs/form-handling/) and access the content via the provided [API](https://www.netlify.com/docs/api/#forms).
 
 To do this we'll need to define the following Environment Variables:
 

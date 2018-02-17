@@ -6,8 +6,8 @@ var Hashids = require("hashids");
 
 export function handler(event, context, callback) {
 
-  // Set the root URL according to the site which made the request
-  var rootURL = event.headers.referer || "";
+  // Set the root URL according to the Netlify site we are within
+  var rootURL =  process.env.URL;
 
   // get the details of what we are creating
   var destination = event.queryStringParameters['to'];
