@@ -1,4 +1,4 @@
-![LinkyLinky screengrab](linky-shot.jpg)
+![LinkyLinky screengrab](screenshot.jpg)
 
 
 # LinkyLinky

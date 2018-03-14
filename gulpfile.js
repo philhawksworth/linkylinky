@@ -43,7 +43,7 @@ gulp.task('clean-js', function () {
 
 // Compile the templates into html
 // We don't need a template tool for this, just copy the
-// html to the build folder
+// html files to the build folder
 gulp.task("render", function () {
   gulp.src([buildSrc + '/pages/**/[!_]*.html'])
     .pipe(gulp.dest(buildDest))
