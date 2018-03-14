@@ -1,25 +1,40 @@
-{% extends "./layouts/_base.html" %}
-
-{% block content %}
-<form name="make-url" >
-  <p>
-    <label for="destination">Address to shorten:</label>
-    <input type="url" name="destination" id="destination">
-  </p>
-  <p>
-    <button type="submit" class="btn" id="btn-create">Get a short link</button>
-  </p>
-  <div class="confirmation" id="confirmation"></div>
-</form>
-
-{% endblock %}
-
-
-{% block footer %}
-<div class="container">
-  <p>
-    This is a <a href="https://www.jamstack.org">JAMstack</a> site, generated and hosted on <a href="https://www.netlify.com">Netlify</a><br/>
-    Get your own, or just peek at <a href="https://github.com/philhawksworth/linkylinky">the code</a>.
-  </p>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LinkyLinky</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="/js/linky.js" async></script>
+  </head>
+  <body class="home">
+    <header>
+      <div class="container">
+        <h1>LinkyLinky</h1>
+        <p>A URL shortener of your very own</p>
+      </div>
+    </header>
+    <div class="content">
+      <div class="container">
+        <form name="make-url" >
+          <p>
+            <label for="destination">Address to shorten:</label>
+            <input type="url" name="destination" id="destination">
+          </p>
+          <p>
+            <button type="submit" class="btn" id="btn-create">Get a short link</button>
+          </p>
+          <div class="confirmation" id="confirmation"></div>
+        </form>
+      </div>
+    </div>
+    <footer>
+    <div class="container">
+      <p>
+        This is a <a href="https://www.jamstack.org">JAMstack</a> site, generated and hosted on <a href="https://www.netlify.com">Netlify</a><br/>
+        Get your own, or just peek at <a href="https://github.com/philhawksworth/linkylinky">the code</a>.
+      </p>
+    </div>
+    </footer>
+  </body>
+</html>

@@ -4,13 +4,8 @@
   "description": "A little URL shortener of your own.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp watch & gulp serve",
     "build": "gulp build & npm run build:functions",
-    "render": "gulp render",
-    "build:css": "gulp scss",
-    "build:js": "gulp js",
-    "routes": "gulp get:routes",
     "build:functions": "netlify-lambda build src/lambda"
   },
   "keywords": [],
@@ -20,13 +15,11 @@
     "dotenv": "^5.0.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
-    "gulp-nunjucks": "^3.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-serve": "^1.4.0",
     "hashids": "^1.1.4",
     "netlify-lambda": "^0.2.0",
     "request": "^2.83.0",
     "run-sequence": "^2.2.1"
-  },
-  "dependencies": {}
+  }
 }
