@@ -4,6 +4,7 @@ var request = require("request");
 var config = require("dotenv").config();
 var Hashids = require("hashids");
 
+
 export function handler(event, context, callback) {
 
   // Set the root URL according to the Netlify site we are within
@@ -21,7 +22,6 @@ export function handler(event, context, callback) {
   if(destination.indexOf("://") == -1) {
     destination = "http://" + destination;
   }
-
 
   // prepare a payload to post
   var payload = {
