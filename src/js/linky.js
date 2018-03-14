@@ -1,11 +1,19 @@
 /*
-  Add a button click handler to post our request to a Lambda function.
-  The Lambda function will return a shortcode URL which it will also set
-  as a new redirect rule in the global CDN.
+  Add a button click handler to post our request.
 */
 var btn = document.querySelector('#btn-create');
 btn.addEventListener('click', function (event) {
   event.preventDefault();
+  submitURL();
+}, false);
+
+
+/*
+  Post our URL to a Lambda function.
+  The Lambda function will return a shortcode URL which it will also set
+  as a new redirect rule in the global CDN.
+*/
+function submitURL() {
   var url = document.querySelector('#destination').value;
   fetch('/.netlify/functions/generate-route?to=' + url)
   .then(function(response) { return response.json(); })
@@ -13,7 +21,7 @@ btn.addEventListener('click', function (event) {
     document.querySelector("#confirmation").innerHTML = '<a href="' + data.url + '" target="_BLANK" rel="noopener">' + data.url + '</a>';
     return;
   });
-}, false);
+}
 
 
 /*

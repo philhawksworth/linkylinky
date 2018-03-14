@@ -111,9 +111,9 @@ form {
 footer {
   margin-top: 1em;
   margin-bottom: 3em;
-  font-size: 0.8em;
+  font-size: 0.7em;
   color: $text-color-light;
-  line-height: 1.3em;
+  line-height: 1.8em;
 }
 
 h1 {
@@ -141,6 +141,19 @@ a {
     border-bottom-color: $text-color-light;
   }
 }
+
+a.btn-dtn {
+  &:link,
+  &:visited,
+  &:hover,
+  &:focus {
+    display: inline-block;
+    margin-top: 2em;
+    border-bottom-style: none;
+  }
+}
+
+
 
 .confirmation {
   margin-top:2em;
