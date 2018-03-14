@@ -22,7 +22,8 @@ export function handler(event, context, callback) {
     destination = "http://" + destination;
   }
 
-  // post the new route to the Routes form
+
+  // prepare a payload to post
   var payload = {
     'form-name' : "routes",
     'destination': destination,
@@ -30,6 +31,7 @@ export function handler(event, context, callback) {
     'expires': ""
   };
 
+  // post the new route to the Routes form
   request.post({'url': rootURL, 'formData': payload }, function(err, httpResponse, body) {
     var msg;
     if (err) {
