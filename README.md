@@ -1,3 +1,6 @@
+![LinkyLinky screengrab](linky-shot.jpg)
+
+
 # LinkyLinky
 
 A little URL shortener of your own.
