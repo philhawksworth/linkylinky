@@ -99,9 +99,8 @@ gulp.task("get:routes", function () {
 
 
       var redirects = `
-/new 200! Role=admin
 /new /login 404
-
+/new 200! Role=admin
 `;
 
       // save our routes to the redirect file
