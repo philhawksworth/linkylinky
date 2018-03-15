@@ -35,6 +35,7 @@ function submitURL() {
 function redirectIfRequired() {
   var path = document.location.pathname;
   if(path !== "/" && path !== "/new/") {
+    document.querySelector('#message').innerHTML = "The redirect rules for that short URL is still being created... we'll send on your way directly!";
     fetch('/.netlify/functions/get-route?code='+path.replace("/",""))
     .then(function(response) { return response.json(); })
     .then(function(data) {

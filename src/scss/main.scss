@@ -135,6 +135,17 @@ p {
   margin-bottom: 1em;
 }
 
+ul {
+  list-style: none;
+}
+
+.message {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  color: $text-color-light;
+  font-size: 0.8em;
+}
+
 a {
   &:link,
   &:visited {
