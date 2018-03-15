@@ -38,6 +38,27 @@ body {
   }
 }
 
+.content{
+
+  .container {
+    background-color: $body-color;
+    border-radius: 6px;
+    margin-top: -6em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left:2em;
+    padding-right:2em;
+    box-shadow: 0 2px 4px 0 $text-color-super-light;
+    position: relative;
+
+    @include bp(mid) {
+      padding-left:4em;
+      padding-right:5em;
+    }
+
+  }
+}
+
 header {
   background: radial-gradient(circle, $text-color-bold 30%, $text-color-dark 80%);
   padding-top: 4em;
@@ -46,20 +67,6 @@ header {
 }
 
 form {
-  background-color: $body-color;
-  border-radius: 6px;
-  margin-top: -6em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  padding-left:2em;
-  padding-right:2em;
-  box-shadow: 0 2px 4px 0 $text-color-super-light;
-  position: relative;
-
-  @include bp(mid) {
-    padding-left:4em;
-    padding-right:5em;
-  }
 
   label {
     display: block;
@@ -122,6 +129,10 @@ h1 {
   @include bp(mid) {
     font-size: 3em;
   }
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 a {

@@ -4,6 +4,7 @@ var clean       = require('gulp-clean');
 var serve       = require('gulp-serve');
 var sass        = require("gulp-sass");
 var request     = require("request");
+var nunjucks    = require('gulp-nunjucks')
 var fs          = require('fs');
 var config      = require('dotenv').config()
 
@@ -42,10 +43,9 @@ gulp.task('clean-js', function () {
 
 
 // Compile the templates into html
-// We don't need a template tool for this, just copy the
-// html files to the build folder
 gulp.task("render", function () {
   gulp.src([buildSrc + '/pages/**/[!_]*.html'])
+    .pipe(nunjucks.compile())
     .pipe(gulp.dest(buildDest))
 });
 

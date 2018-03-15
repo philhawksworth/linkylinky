@@ -1,13 +1,17 @@
-
 {% extends "./layouts/_base.html" %}
 
 {% block content %}
-<p>
-  You can get a version of this URL shortener of your own and run it on your own domain if you host it on Netlify
-</p>
-<p>
-  <a href="/new">Make a new link</a>
-</p>
+<form name="make-url" >
+  <p>
+    <label for="destination">Address to shorten:</label>
+    <input type="url" name="destination" id="destination">
+  </p>
+  <p>
+    <button type="submit" class="btn" id="btn-create">Get a short link</button>
+  </p>
+  <div class="confirmation" id="confirmation"></div>
+</form>
+
 {% endblock %}
 
 

@@ -8,8 +8,8 @@
     "build": "gulp build & npm run build:functions",
     "build:functions": "netlify-lambda build src/lambda"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["JAMstack", "Utility", "Example"],
+  "author": "Phil Hawksworth",
   "license": "ISC",
   "devDependencies": {
     "dotenv": "^5.0.0",
@@ -17,6 +17,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-sass": "^3.1.0",
     "gulp-serve": "^1.4.0",
+    "gulp-nunjucks": "^3.1.1",
     "hashids": "^1.1.4",
     "netlify-lambda": "^0.2.0",
     "request": "^2.83.0",
