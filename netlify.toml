@@ -9,3 +9,10 @@
   to = "/index.html"
   status = 404
 
+# [[redirects]]
+#   from = "/new"
+#   to = "/"
+#   status = 401
+#   force = true
+#   conditions = {Role = ["admin"]}
+
