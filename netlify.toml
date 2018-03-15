@@ -11,8 +11,12 @@
 
 [[redirects]]
   from = "/new"
-  to = "/login"
-  status = 401
+  status = 200
   force = true
   conditions = {Role = ["admin"]}
 
+[[redirects]]
+  from = "/new"
+  to = "/login"
+  status = 404
+  force = true
