@@ -96,8 +96,16 @@ gulp.task("get:routes", function () {
         routes.push("/" + formsData[item].data.code + "  " + destination + "  302");
       }
 
+
+
+      var redirects = `
+/new 200! Role=admin
+/new /login 404
+
+`;
+
       // save our routes to the redirect file
-      fs.writeFile(buildDest + '/_redirects', routes.join('\n'), function(err) {
+      fs.writeFile(buildDest + '/_redirects', redirects + routes.join('\n'), function(err) {
         if(err) {
           return console.log(err);
         } else {
