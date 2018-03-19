@@ -21,7 +21,7 @@ function submitURL() {
   fetch('/.netlify/functions/generate-route?to=' + url)
   .then(function(response) { return response.json(); })
   .then(function(data) {
-    document.querySelector("#confirmation").innerHTML = '<a href="' + data.url + '" target="_BLANK" rel="noopener">' + data.url + '</a>';
+    document.querySelector("#message").innerHTML = '<a href="' + data.url + '" target="_BLANK" rel="noopener">' + data.url + '</a>';
     return;
   });
 }
