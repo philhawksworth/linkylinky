@@ -1,11 +1,14 @@
 /*
   Add a button click handler to post our request.
 */
-var btn = document.querySelector('#btn-create');
-btn.addEventListener('click', function (event) {
-  event.preventDefault();
-  submitURL();
-}, false);
+function eventHandlers() {
+  var btn = document.querySelector('#btn-create');
+  if(!btn){ return;}
+  btn.addEventListener('click', function (event) {
+    event.preventDefault();
+    submitURL();
+  }, false);
+}
 
 
 /*
@@ -29,11 +32,18 @@ function submitURL() {
   underway. So let's query the data store directly and send the user to the right
   place with a client side redirect.
 */
-var path = document.location.pathname;
-if(path !== "/") {
-  fetch('/.netlify/functions/get-route?code='+path.replace("/",""))
+function redirectIfRequired() {
+  var path = document.location.pathname;
+  if(path !== "/") {
+    document.querySelector('#message').innerHTML = "The redirect rules for that short URL is still being created... we'll send on your way directly!";
+    fetch('/.netlify/functions/get-route?code='+path.replace("/",""))
     .then(function(response) { return response.json(); })
     .then(function(data) {
       document.location.href = data.url;
-  });
+    });
+  }
 }
+
+
+eventHandlers();
+redirectIfRequired();
