@@ -4,8 +4,8 @@
   "description": "A little URL shortener of your own.",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp build && gulp watch & gulp serve",
-    "build": "gulp build & npm run build:functions",
+    "start": "gulp build & gulp watch & gulp serve",
+    "build": "gulp build & yarn run build:functions",
     "build:functions": "netlify-lambda build src/lambda"
   },
   "keywords": [],

@@ -1,0 +1,63 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
+
+PATH: 
+  /Users/phil/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/phil/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "linkylinky",
+    "version": "1.0.0",
+    "description": "A little URL shortener of your own.",
+    "main": "gulpfile.js",
+    "scripts": {
+      "start": "gulp build && gulp watch & gulp serve",
+      "build": "gulp build & npm run build:functions",
+      "build:functions": "netlify-lambda build src/lambda"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "dotenv": "^5.0.0",
+      "gulp": "^3.9.1",
+      "gulp-clean": "^0.4.0",
+      "gulp-sass": "^3.1.0",
+      "gulp-serve": "^1.4.0",
+      "hashids": "^1.1.4",
+      "netlify-lambda": "^0.2.0",
+      "request": "^2.83.0",
+      "run-sequence": "^2.2.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c gulp build & npm run build:functions
+  Directory: /Users/phil/projects/hawksworx/linkylinky
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
