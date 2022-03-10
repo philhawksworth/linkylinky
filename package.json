@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A little URL shortener of your own.",
   "scripts": {
-    "start": "eleventy",
+    "start": "eleventy --watch --serve",
     "build": "eleventy"
   },
   "keywords": [],
