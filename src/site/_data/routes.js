@@ -10,27 +10,37 @@ const isValidUrl = (url) => {
   return true;
 };
 
-async function fetchRoutes(username) {
-  let routes = [];
-  const url = `https://api.netlify.com/api/v1/forms/${process.env.ROUTES_FORM_ID}/submissions?access_token=${process.env.API_AUTH}`;
-  return axios.get(url)
-    .then(res => {
-      for (const item of res.data) {
-        if (isValidUrl(item.data.destination)) {
-          routes.push({
-            from: item.data.code,
-            to: item.data.destination
-          });
-        }
+
+const baseURL = `https://api.netlify.com/api/v1/forms/${process.env.ROUTES_FORM_ID}/submissions?access_token=${process.env.API_AUTH}`;
+let routes = [];
+let formatted = [];
+
+async function fetchRoutes(page) {
+
+  const url = `${baseURL}&page=${page}`;
+  const response = await axios.get(url);
+  const data = response.data;
+
+  console.log(`fetching`, url);
+
+  if (data.length < 1) {
+    return routes.concat(await fetchRoutes(page + 1));
+  } else {
+    // format the result to return
+    for (const item of data) {
+      if (isValidUrl(item.data.destination)) {
+        formatted.push({
+          from: item.data.code,
+          to: item.data.destination
+        });
       }
-      return routes;
-    })
-    .catch(error => {
-      console.error(error)
-    });
+    }
+    return formatted;
+  }
+
 }
 
 
 module.exports = async function() {
-  return await fetchRoutes()
+  return await fetchRoutes(1)
 };
