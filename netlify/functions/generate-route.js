@@ -1,13 +1,15 @@
 'use strict';
 
-var request = require("request");
-var Hashids = require("hashids");
+const Hashids = require("hashids");
+const axios = require("axios");
 
 
-export function handler(event, context, callback) {
+exports.handler = async(event) => {
+
 
   // Set the root URL according to the Netlify site we are within
   var rootURL = process.env.URL + "/";
+  // var rootURL = "https://linkylinky.netlify.app/";
 
   // get the details of what we are creating
   var destination = event.queryStringParameters['to'];
@@ -22,30 +24,31 @@ export function handler(event, context, callback) {
     destination = "http://" + destination;
   }
 
-  // prepare a payload to post
-  var payload = {
-    'form-name': "routes",
-    'destination': destination,
-    'code': code,
-    'expires': ""
-  };
 
-  // post the new route to the Routes form
-  request.post({ 'url': rootURL, 'formData': payload }, function(err, httpResponse, body) {
-    var msg;
-    if (err) {
-      msg = "Post to Routes stash failed: " + err;
-    } else {
-      msg = "Route registered. Site deploying to include it. " + rootURL + code
-    }
-    console.log(msg);
-    // tell the user what their shortcode will be
-    return callback(null, {
-      statusCode: 200,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ "url": rootURL + code })
+  axios.post(rootURL, {
+      'form-name': "routes",
+      'destination': destination,
+      'code': code,
+      'expires': ""
     })
-  });
+    .then((response) => {
+      console.log(response);
+      console.log("Route registered. Site deploying to include it. " + rootURL + code);
+      return {
+        statusCode: 200,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "url": rootURL + code })
+      };
+    }, (error) => {
+      // console.log(error);
+      return {
+        statusCode: 500,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(error)
+      };
+    });
+
+
 
   // ENHANCEMENT: check for uniqueness of shortcode
   // ENHANCEMENT: let the user provide their own shortcode
