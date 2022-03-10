@@ -34,7 +34,7 @@ function submitURL() {
 */
 function redirectIfRequired() {
   var path = document.location.pathname;
-  if (path == "undefined") {
+  if (path == "/undefined") {
     document.location.href = "/";
   }
   if (path !== "/") {

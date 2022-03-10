@@ -23,7 +23,7 @@ async function fetchRoutes(page) {
 
   console.log(`fetching`, url);
 
-  if (data.length < 1) {
+  if (data.length) {
     return routes.concat(await fetchRoutes(page + 1));
   } else {
     // format the result to return
