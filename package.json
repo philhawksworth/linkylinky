@@ -13,6 +13,8 @@
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-plugin-directory-output": "^1.0.1",
     "axios": "^0.26.1",
+    "hashids": "^2.2.10",
+    "request": "^2.88.2",
     "sass": "^1.49.9"
   }
 }

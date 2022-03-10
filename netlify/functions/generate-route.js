@@ -1,14 +1,13 @@
 'use strict';
 
 var request = require("request");
-var config = require("dotenv").config();
 var Hashids = require("hashids");
 
 
 export function handler(event, context, callback) {
 
   // Set the root URL according to the Netlify site we are within
-  var rootURL =  process.env.URL + "/";
+  var rootURL = process.env.URL + "/";
 
   // get the details of what we are creating
   var destination = event.queryStringParameters['to'];
@@ -19,20 +18,20 @@ export function handler(event, context, callback) {
   var code = hash.encode(number);
 
   // ensure that a protocol was provided
-  if(destination.indexOf("://") == -1) {
+  if (destination.indexOf("://") == -1) {
     destination = "http://" + destination;
   }
 
   // prepare a payload to post
   var payload = {
-    'form-name' : "routes",
+    'form-name': "routes",
     'destination': destination,
     'code': code,
     'expires': ""
   };
 
   // post the new route to the Routes form
-  request.post({'url': rootURL, 'formData': payload }, function(err, httpResponse, body) {
+  request.post({ 'url': rootURL, 'formData': payload }, function(err, httpResponse, body) {
     var msg;
     if (err) {
       msg = "Post to Routes stash failed: " + err;
@@ -43,8 +42,8 @@ export function handler(event, context, callback) {
     // tell the user what their shortcode will be
     return callback(null, {
       statusCode: 200,
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({"url": rootURL + code})
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "url": rootURL + code })
     })
   });
 
