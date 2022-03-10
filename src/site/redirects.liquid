@@ -1,0 +1,7 @@
+---
+permalink: "_redirects"
+---
+
+{% for route in routes %}
+  /{{ route.from }} {{ route.to }} 302
+{% endfor %}

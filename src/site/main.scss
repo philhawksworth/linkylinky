@@ -1,6 +1,5 @@
-@import '_variables';
-@import '_mixins';
-
+@import '_includes/variables.scss';
+@import '_includes/mixins.scss';
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +7,7 @@
 
 body {
   background-color: $body-color;
-  color:  $text-color;
+  color: $text-color;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +15,6 @@ body {
   line-height: 1.6em;
   font-size: 16px;
   font-style: italic;
-
   @include bp(mid) {
     font-size: 18px;
   }
@@ -29,7 +27,6 @@ body {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-
   @include bp(mid) {
     width: 70%;
   }
@@ -51,20 +48,17 @@ form {
   margin-top: -6em;
   padding-top: 2em;
   padding-bottom: 2em;
-  padding-left:2em;
-  padding-right:2em;
+  padding-left: 2em;
+  padding-right: 2em;
   box-shadow: 0 2px 4px 0 $text-color-super-light;
   position: relative;
-
   @include bp(mid) {
-    padding-left:4em;
-    padding-right:5em;
+    padding-left: 4em;
+    padding-right: 5em;
   }
-
   label {
     display: block;
   }
-
   input {
     width: 100%;
     padding-left: 0.4em;
@@ -77,7 +71,6 @@ form {
     border-top-color: $text-color-light;
     color: $text-color;
   }
-
   .btn {
     display: inline-block;
     font-family: georgia, serif;
@@ -86,7 +79,7 @@ form {
     padding-right: 2em;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
-    margin-top:1.6em;
+    margin-top: 1.6em;
     margin-bottom: 1em;
     font-size: 0.9em;
     border-style: none;
@@ -94,7 +87,6 @@ form {
     box-shadow: 0 2px 4px 0 $text-color-super-light;
     background-color: $text-color;
     color: $body-color;
-
     &:hover,
     &:focus {
       background-color: $text-color-bold;
@@ -105,7 +97,6 @@ form {
       color: $text-color-bold;
     }
   }
-
 }
 
 footer {
@@ -128,7 +119,7 @@ a {
   &:link,
   &:visited {
     text-decoration: none;
-    color:$text-color-bold;
+    color: $text-color-bold;
     border-bottom-style: dotted;
     border-bottom-width: 1px;
     border-bottom-color: $text-color-super-light;
@@ -152,7 +143,6 @@ a.btn-dtn {
     border-bottom-style: none;
   }
 }
-
 
 .message {
   margin-top: 2em;

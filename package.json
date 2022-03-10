@@ -2,24 +2,17 @@
   "name": "linkylinky",
   "version": "1.0.0",
   "description": "A little URL shortener of your own.",
-  "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp build & gulp watch & gulp serve",
-    "build": "gulp build & yarn run build:functions",
-    "build:functions": "netlify-lambda build src/lambda"
+    "start": "eleventy",
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "dotenv": "^5.0.0",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.4.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-serve": "^1.4.0",
-    "hashids": "^1.1.4",
-    "netlify-lambda": "^0.2.0",
-    "request": "^2.83.0",
-    "run-sequence": "^2.2.1"
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
+    "axios": "^0.26.1",
+    "sass": "^1.49.9"
   }
 }

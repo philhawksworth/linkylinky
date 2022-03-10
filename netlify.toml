@@ -1,8 +1,6 @@
 [build]
-  Functions = "functions"
-  command = "yarn run build"
+  command = "npm run build"
   publish = "dist"
-  environment = { NODE_VERSION = "8.9.0" }
 
 
 [[redirects]]
