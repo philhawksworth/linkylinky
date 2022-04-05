@@ -15,3 +15,9 @@
   to = "/index.html"
   status = 404
 
+[template]
+  incoming-hooks = ["URL Submitted"]
+
+[template.environment]
+  ROUTES_FORM_ID = "The ID of the form in your Netlify site"
+  API_AUTH = "Your personal Netlify API authentication token"
